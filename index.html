@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToDo DEMO - Easy plugin jQuery</title>
+</head>
+<body>
+  <div id="form">
+    <div>
+      <input type="text" name="" placeholder="entrez nom" value="">
+    </div>
+    <div>
+      <input type="text" name="" placeholder="prenom" value="">
+    </div>
+    <div>
+    <select>
+      <option value="" selected>choissiez votre sexe</option>
+      <option value="m">M</option>
+      <option value="f">F</option>
+    </select>
+    </div>
+    <div>
+      <button>Submit</button>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="lib/form-generator-plugin.js"></script>
+  <script>
+    $(document).ready(function() {
+      var model = [{
+        'id': 'first-name',
+        'value': '',
+        'placeholder': 'Entrez votre prénom',
+        'validator': /\w{1, 50}/gi,
+        'error': {
+          'enabled': false,
+          'message': 'Vous devez entrer un prénom compris entre 1 et 50 lettres' 
+        }
+      }, {
+        'id': 'last-name',
+        'value': '',
+        'placeholder': 'Entrez votre nom',
+        'validator': /\w{1, 50}/gi,
+        'error': {
+          'enabled': false,
+          'message': 'Vous devez entrer un nom compris entre 1 et 50 lettres' 
+        }
+      }];
+
+      var formGenerator = $('#form').FormGenerator({model});
+    });
+  </script>
+</body>
+</html>
