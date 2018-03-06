@@ -28,7 +28,6 @@
   <script>
     $(document).ready(function() {
       var model = [{
-        'id': 'first-name',
         'currentValue': '',
         'type': 'input-text',
         'placeholder': 'Entrez votre prénom',
@@ -38,7 +37,6 @@
           'message': 'Vous devez entrer un prénom compris entre 1 et 50 lettres' 
         }
       }, {
-        'id': 'last-name',
         'currentValue': '',
         'type': 'select',
         'options': [{
@@ -62,6 +60,16 @@
       var formGenerator = $('#form').FormGenerator({
         model
       });
+
+      formGenerator.validForm((err, result) => {
+        if (err) {
+          console.log('error');
+
+          return;
+        }
+
+        console.log('valid');
+      })
     });
   </script>
 </body>
