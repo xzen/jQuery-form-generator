@@ -5,7 +5,7 @@
 </head>
 <body>
   <div id="form">
-    <div>
+    <!-- <div>
       <input type="text" name="" placeholder="entrez nom" value="">
     </div>
     <div>
@@ -20,7 +20,7 @@
     </div>
     <div>
       <button>Submit</button>
-    </div>
+    </div> -->
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -29,7 +29,8 @@
     $(document).ready(function() {
       var model = [{
         'id': 'first-name',
-        'value': '',
+        'currentValue': '',
+        'type': 'input-text',
         'placeholder': 'Entrez votre prénom',
         'validator': /\w{1, 50}/gi,
         'error': {
@@ -38,7 +39,18 @@
         }
       }, {
         'id': 'last-name',
-        'value': '',
+        'currentValue': '',
+        'type': 'select',
+        'options': [{
+          'value': '',
+          'name': 'choisir son option',
+        }, {
+          'value': 'm',
+          'name': 'mal', 
+        }, {
+          'value': 'f',
+          'name': 'fem', 
+        }],
         'placeholder': 'Entrez votre nom',
         'validator': /\w{1, 50}/gi,
         'error': {
@@ -47,7 +59,9 @@
         }
       }];
 
-      var formGenerator = $('#form').FormGenerator({model});
+      var formGenerator = $('#form').FormGenerator({
+        model
+      });
     });
   </script>
 </body>
